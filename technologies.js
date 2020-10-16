@@ -1,18 +1,18 @@
 const technologies = ({
     nodes: [
-        {id: "bash", group: 0},
-        {id: "Linux", group: 0},
-        {id: "SQL", group: 1},
-        {id: "Java", group: 2},
-        {id: "Spring", group: 2},
-        {id: "Hibernate", group: 2},
-        {id: "JPA", group: 2},
-        {id: "HTML", group: 3},
-        {id: "CSS", group: 3}
+        {id: "bash"},
+        {id: "Linux"},
+        {id: "SQL"},
+        {id: "Java"},
+        {id: "Spring"},
+        {id: "Hibernate"},
+        {id: "JPA"},
+        {id: "HTML"},
+        {id: "CSS"}
     ],
     links: [
         {source: "bash", target: "Linux", value: 20},
-        {source: "SQL", target: "Linux", value: 10},
+        {source: "SQL", target: "Linux", value: 7},
         {source: "SQL", target: "Java", value: 4},
         {source: "Java", target: "Spring", value: 10},
         {source: "SQL", target: "Hibernate", value: 8},

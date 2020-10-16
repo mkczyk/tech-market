@@ -15,6 +15,8 @@ const links = data.links.map(d => Object.assign(Object.create(d), {
     target: index.get(d.target)
 }));
 
+netClustering.cluster(nodes, links);
+
 const layout = cola.d3adaptor(d3)
     .size([width, height])
     .nodes(nodes)
@@ -43,7 +45,7 @@ const circle = node.append("circle")
     .attr("stroke", "#fff")
     .attr("stroke-width", 1)
     .attr("r", 10)
-    .attr("fill", d => color(d.group))
+    .attr("fill", d => color(d.cluster))
     .call(layout.drag);
 
 circle.append("title")
@@ -68,4 +70,3 @@ layout.on("tick", () => {
     node
         .attr("transform", d => 'translate(' + [d.x, d.y] + ')')
 });
-
