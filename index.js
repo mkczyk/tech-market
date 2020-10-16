@@ -24,7 +24,9 @@ const layout = cola.d3adaptor(d3)
     .linkDistance(d => 30 + Math.pow(d.value, -1) * 200)
     .start(30);
 
-const link = svg.append("g")
+const view = svg.append("g");
+
+const link = view.append("g")
     .attr("stroke", "#999")
     .attr("stroke-opacity", 0.6)
     .selectAll("line")
@@ -36,7 +38,7 @@ const link = svg.append("g")
 link.append("title")
     .text(d => d.value);
 
-const node = svg.selectAll("g.node")
+const node = view.selectAll("g.node")
     .data(nodes)
     .enter()
     .append("g");
@@ -58,7 +60,17 @@ node.append("text")
     .attr("stroke", "#fff")
     .attr("stroke-width", 2)
     .attr("paint-order", "stroke fill")
-    .text(d => d.id);
+    .text(d => d.id)
+    .on("mousedown", d => d3.event.stopPropagation());
+
+svg.call(d3.zoom()
+    .extent([[0, 0], [width, height]])
+    .scaleExtent([0.5, 5])
+    .on("zoom", zoomed));
+
+function zoomed() {
+    view.attr("transform", d3.event.transform);
+}
 
 layout.on("tick", () => {
     link
