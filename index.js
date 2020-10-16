@@ -1,4 +1,4 @@
-const data = miserables;
+const data = technologies;
 const width = 500;
 const height = 500;
 
@@ -19,7 +19,7 @@ const layout = cola.d3adaptor(d3)
     .size([width, height])
     .nodes(nodes)
     .links(links)
-    .jaccardLinkLengths(40, 0.7)
+    .linkDistance(d => 10 + Math.pow(d.value, -1) * 300)
     .start(30);
 
 const link = svg.append("g")
@@ -30,13 +30,16 @@ const link = svg.append("g")
     .enter().append("line")
     .attr("stroke-width", d => Math.sqrt(d.value));
 
+link.append("title")
+    .text(d => d.value);
+
 const node = svg.append("g")
     .attr("stroke", "#fff")
     .attr("stroke-width", 1.5)
-    .selectAll("circle")
+    .selectAll("g")
     .data(nodes)
     .enter().append("circle")
-    .attr("r", 5)
+    .attr("r", 10)
     .attr("fill", d => color(d.group))
     .call(layout.drag);
 
