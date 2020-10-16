@@ -7,7 +7,8 @@ const technologies = ({
         {id: "Spring", group: 2},
         {id: "Hibernate", group: 2},
         {id: "JPA", group: 2},
-        {id: "HTML", group: 3}
+        {id: "HTML", group: 3},
+        {id: "CSS", group: 3}
     ],
     links: [
         {source: "bash", target: "Linux", value: 20},
@@ -19,6 +20,7 @@ const technologies = ({
         {source: "Java", target: "Hibernate", value: 10},
         {source: "Spring", target: "Hibernate", value: 15},
         {source: "JPA", target: "Hibernate", value: 20},
-        {source: "SQL", target: "HTML", value: 2}
+        {source: "SQL", target: "HTML", value: 2},
+        {source: "HTML", target: "CSS", value: 20}
     ]
 })

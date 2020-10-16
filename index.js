@@ -19,7 +19,7 @@ const layout = cola.d3adaptor(d3)
     .size([width, height])
     .nodes(nodes)
     .links(links)
-    .linkDistance(d => 10 + Math.pow(d.value, -1) * 300)
+    .linkDistance(d => 30 + Math.pow(d.value, -1) * 200)
     .start(30);
 
 const link = svg.append("g")
@@ -27,23 +27,35 @@ const link = svg.append("g")
     .attr("stroke-opacity", 0.6)
     .selectAll("line")
     .data(links)
-    .enter().append("line")
+    .enter()
+    .append("line")
     .attr("stroke-width", d => Math.sqrt(d.value));
 
 link.append("title")
     .text(d => d.value);
 
-const node = svg.append("g")
-    .attr("stroke", "#fff")
-    .attr("stroke-width", 1.5)
-    .selectAll("g")
+const node = svg.selectAll("g.node")
     .data(nodes)
-    .enter().append("circle")
+    .enter()
+    .append("g");
+
+const circle = node.append("circle")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1)
     .attr("r", 10)
     .attr("fill", d => color(d.group))
     .call(layout.drag);
 
-node.append("title")
+circle.append("title")
+    .text(d => d.id);
+
+node.append("text")
+    .attr("dx", d => 10)
+    .attr("dy", d => 15)
+    .attr("font-size", "12px")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 2)
+    .attr("paint-order", "stroke fill")
     .text(d => d.id);
 
 layout.on("tick", () => {
@@ -54,7 +66,6 @@ layout.on("tick", () => {
         .attr("y2", d => d.target.y);
 
     node
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y);
+        .attr("transform", d => 'translate(' + [d.x, d.y] + ')')
 });
 
