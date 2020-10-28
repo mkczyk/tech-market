@@ -1,0 +1,2 @@
+# Add batch
+http://localhost:8080/api/batch/run?name=aaa
