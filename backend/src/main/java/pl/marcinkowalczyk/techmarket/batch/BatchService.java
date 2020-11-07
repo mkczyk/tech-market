@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -15,12 +17,12 @@ public class BatchService {
     public void runBatch(String name) {
         BatchEntity batch = BatchEntity.builder()
                 .name(name)
+                .date(LocalDateTime.now())
+                .content(noFluffJobsClient.getBatch())
                 .build();
 
-        log.info(noFluffJobsClient.getBatch()); // TODO
-
         batchRepository.save(batch);
-        log.info("Saved batch: {}", batch);
+        log.info("Saved batch '{}' with id {}", name, batch.getId());
 
     }
 }
