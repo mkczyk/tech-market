@@ -15,6 +15,7 @@ public class BatchService {
 
     private final BatchRepository batchRepository;
     private final NoFluffJobsClient noFluffJobsClient;
+    private final BatchMapper batchMapper;
 
     public void runBatch(String name) {
         BatchEntity batch = BatchEntity.builder()
@@ -34,16 +35,7 @@ public class BatchService {
 
     public List<BatchDetailsResponseDto> findBatches() {
         return batchRepository.findAll().stream()
-                .map(this::map)
+                .map(batchMapper::mapToBatchDetailsResponseDto)
                 .collect(Collectors.toList());
-    }
-
-    private BatchDetailsResponseDto map(BatchEntity batchEntity) {
-        return BatchDetailsResponseDto.builder()
-                .id(batchEntity.getId())
-                .name(batchEntity.getName())
-                .date(batchEntity.getDate())
-                .contentLength(batchEntity.getContent().length())
-                .build();
     }
 }
