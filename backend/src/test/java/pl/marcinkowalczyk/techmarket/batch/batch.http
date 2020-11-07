@@ -1,2 +1,8 @@
 ### Add batch
 http://localhost:8080/api/batch/run?name=aaa
+
+### List batch
+http://localhost:8080/api/batch/
+
+### Read batch content
+http://localhost:8080/api/batch/read?name=aaa
