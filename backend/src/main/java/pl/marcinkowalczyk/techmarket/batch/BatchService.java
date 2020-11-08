@@ -19,6 +19,7 @@ public class BatchService {
 
     public void runBatch(String name) {
         BatchEntity batch = BatchEntity.builder()
+                .status(BatchStatus.NEW)
                 .name(name)
                 .date(LocalDateTime.now())
                 .content(noFluffJobsClient.getBatch())

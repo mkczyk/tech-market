@@ -6,3 +6,6 @@ http://localhost:8080/api/batch/
 
 ### Read batch content
 http://localhost:8080/api/batch/read?name=aaa
+
+### Explode batch content
+http://localhost:8080/api/batch/explode?name=aaa

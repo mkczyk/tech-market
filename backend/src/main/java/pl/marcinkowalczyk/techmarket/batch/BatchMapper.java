@@ -7,10 +7,10 @@ import org.mapstruct.Named;
 @Mapper
 public interface BatchMapper {
 
-    @Mapping(source = "batchEntity", target = "contentLength", qualifiedByName = "contentLength")
+    @Mapping(target = "contentLength", source = "batchEntity", qualifiedByName = "contentLengthMethod")
     BatchDetailsResponseDto mapToBatchDetailsResponseDto(BatchEntity batchEntity);
 
-    @Named("contentLength")
+    @Named("contentLengthMethod")
     default int contentLength(BatchEntity batchEntity) {
         return batchEntity.getContent().length();
     }
