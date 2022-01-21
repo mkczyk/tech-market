@@ -9,3 +9,6 @@ http://localhost:8080/api/batch/read?name=aaa
 
 ### Explode batch content
 http://localhost:8080/api/batch/explode?name=aaa
+
+### Download offers from batch
+http://localhost:8080/api/batch/offers/download?name=aaa&number=20

@@ -4,6 +4,7 @@ import lombok.*;
 import pl.marcinkowalczyk.techmarket.batch.BatchEntity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -28,5 +29,9 @@ public class OfferEntity {
     private String name;
     private String title;
     private String category;
+
+    @Column(columnDefinition = "TEXT")
+    private String content;
+    private LocalDateTime downloadedDate;
 
 }

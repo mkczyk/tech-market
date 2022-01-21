@@ -30,7 +30,7 @@ public class BatchExplodeService {
     private final ObjectMapper objectMapper;
     private final OfferMapper offerMapper;
 
-    @Transactional
+    @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void explode(String name) {
         BatchEntity batch = batchRepository.findFirstByName(name);
         log.info("Exploding batch '{}' with id {}", batch.getName(), batch.getId());
