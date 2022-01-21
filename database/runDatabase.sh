@@ -1,8 +1,9 @@
 #!/bin/bash
+set -e
 
 # Example:
-# database/run_database.sh
-# database/run_database.sh -r
+# database/runDatabase.sh
+# database/runDatabase.sh -r
 
 CONTAINER_NAME=techmarket-db
 DB_USER=techmarket
@@ -12,6 +13,8 @@ DB_NAME=techmarket
 # Usage database after creating/starting:
 # docker exec -it techmarket-db bash
 # psql -h localhost -U techmarket -d 123456
+# or one-liner:
+# docker exec -it techmarket-db psql -d techmarket -U techmarket -c "select id, name, date from batches"
 
 function get_status {
   local status=$(docker container inspect -f '{{.State.Status}}' $CONTAINER_NAME)

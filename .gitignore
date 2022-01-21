@@ -30,3 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Custom
+database/backups/db*
