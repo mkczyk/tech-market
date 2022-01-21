@@ -1,14 +1,12 @@
 package pl.marcinkowalczyk.techmarket.offer;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.marcinkowalczyk.techmarket.batch.BatchEntity;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

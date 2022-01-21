@@ -24,7 +24,6 @@ public class BatchService {
                 .date(LocalDateTime.now())
                 .content(noFluffJobsClient.getBatch())
                 .build();
-
         batchRepository.save(batch);
         log.info("Saved batch '{}' with id {}", name, batch.getId());
     }
