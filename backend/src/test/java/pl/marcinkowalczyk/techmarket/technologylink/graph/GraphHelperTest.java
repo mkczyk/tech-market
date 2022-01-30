@@ -1,4 +1,4 @@
-package pl.marcinkowalczyk.techmarket.technologylink;
+package pl.marcinkowalczyk.techmarket.technologylink.graph;
 
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,8 +16,8 @@ class GraphHelperTest {
     @ParameterizedTest
     @MethodSource("provideElementsWithPairs")
     void pairTest(Set<String> elements, String expected) {
-        List<List<String>> pairs = GraphHelper.generatePairs(elements);
-        assertEquals(expected, pairs.toString());
+        List<WeightedGraphEdge> pairs = GraphHelper.generatePairLinks(elements);
+        assertEquals(expected, WeightedGraphEdge.toTextEdge(pairs));
     }
 
     private static Stream<Arguments> provideElementsWithPairs() {
@@ -29,6 +29,4 @@ class GraphHelperTest {
                 Arguments.of(Sets.newLinkedHashSet(), "[]")
         );
     }
-
-
 }
