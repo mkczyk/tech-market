@@ -11,4 +11,7 @@ public interface OfferRepository extends JpaRepository<OfferEntity, Long> {
 
     Page<OfferEntity> findOfferEntitiesByBatchOrderById(BatchEntity batch, Pageable page);
 
+    Page<OfferEntity> findOfferEntitiesByBatchAndStatusOrderById(BatchEntity batch, OfferStatus offerStatus,
+                                                                 Pageable page);
+
 }

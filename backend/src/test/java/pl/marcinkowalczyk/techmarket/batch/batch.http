@@ -11,4 +11,7 @@ http://localhost:8080/api/batch/read?name=aaa
 http://localhost:8080/api/batch/explode?name=aaa
 
 ### Download offers from batch
-http://localhost:8080/api/batch/offers/download?name=aaa&number=20
+http://localhost:8080/api/batch/offers/download?name=aaa&number=100
+
+### Link technologies from offers from batch
+http://localhost:8080/api/batch/offers/link?name=aaa

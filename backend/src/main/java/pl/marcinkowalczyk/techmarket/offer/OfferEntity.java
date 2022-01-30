@@ -33,5 +33,4 @@ public class OfferEntity {
     @Column(columnDefinition = "TEXT")
     private String content;
     private LocalDateTime downloadedDate;
-
 }
