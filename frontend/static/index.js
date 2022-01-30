@@ -1,6 +1,6 @@
 const data = technologies;
-const width = 500;
-const height = 500;
+const width = 1500;
+const height = 800;
 
 const svg = d3.select("#svg-container")
     .attr("width", width)

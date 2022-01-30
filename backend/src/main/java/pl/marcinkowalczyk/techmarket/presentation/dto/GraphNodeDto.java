@@ -1,0 +1,13 @@
+package pl.marcinkowalczyk.techmarket.presentation.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class GraphNodeDto {
+
+    private String id;
+}

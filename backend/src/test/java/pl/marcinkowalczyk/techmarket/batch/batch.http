@@ -15,3 +15,6 @@ http://localhost:8080/api/batch/offers/download?name=aaa&number=100
 
 ### Link technologies from offers from batch
 http://localhost:8080/api/batch/offers/link?name=aaa
+
+### Get presentation
+http://localhost:8080/api/batch/presentation?name=aaa
